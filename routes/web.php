@@ -3,6 +3,18 @@
  Route::get('search', 'HomePageController@table')->name('search');
  Route::get('categories/{category}', 'HomePageController@category')->name('category');
  Route::get('companies/{company}', 'HomePageController@company')->name('company');
+ Route::get('/aboutus','HomePageController@aboutus');
+ Route::get('/careers','HomePageController@careers');
+ Route::get('/contactus','HomePageController@contactus');
+ Route::get('/howitworks','HomePageController@howitworks');
+ Route::get('/ourmission','HomePageController@ourmission');
+ Route::get('/postadd','HomePageController@postadd');
+ Route::get('/pricing','HomePageController@pricing');
+ Route::get('/whyChooseUs','HomePageController@whyChooseUs');
+ Route::get('/services','HomePageController@services');
+ 
+
+
 
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');

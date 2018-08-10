@@ -3,58 +3,6 @@
 @section('content')
 
 
-<section class="page-search">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- Advance Search -->
-				<div class="advance-search">
-                    {!! Form::open([ 'action' => 'HomePageController@table', 'method' => 'get']) !!}
-
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                {!! Form::text('search', old('search'), ['class' => 'form-control', 'placeholder' => 'Search company']) !!}
-                                <p class="help-block"></p>
-                                @if($errors->has('name'))
-                                    <p class="help-block">
-                                        {{ $errors->first('name') }}
-                                    </p>
-                                @endif
-                            </div>
-                            <div class="form-group col-md-3">
-                                {!! Form::select('categories', $search_categories, null , ['placeholder' => 'Category', 'class' => 'form-control form-control-lg']) !!}
-                                <p class="help-block"></p>
-                                @if($errors->has('categories'))
-                                    <p class="help-block">
-                                        {{ $errors->first('categories') }}
-                                    </p>
-                                @endif
-                            </div>
-                            <div class="form-group col-md-3">
-                                {!! Form::select('city_id', $search_cities, null, ['placeholder' => 'City', 'class' => 'form-control form-control-lg']) !!}
-                                <p class="help-block"></p>
-                                @if($errors->has('city_id'))
-                                    <p class="help-block">
-                                        {{ $errors->first('city_id') }}
-                                    </p>
-                                @endif
-                            </div>
-                            
-                            <div class="form-group col-md-2">
-                                <button type="submit"
-                                        class="btn btn-primary">
-                                        Search Now
-                                </button>
-                            </div>
-                        </div>
-
-                    {!! Form::close() !!}
-					 
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
 <section class="section-sm">
 	<div class="container">
