@@ -3,15 +3,15 @@
  Route::get('search', 'HomePageController@table')->name('search');
  Route::get('categories/{category}', 'HomePageController@category')->name('category');
  Route::get('companies/{company}', 'HomePageController@company')->name('company');
- Route::get('/aboutus','HomePageController@aboutus');
- Route::get('/careers','HomePageController@careers');
- Route::get('/contactus','HomePageController@contactus');
- Route::get('/howitworks','HomePageController@howitworks');
- Route::get('/ourmission','HomePageController@ourmission');
- Route::get('/postadd','HomePageController@postadd');
- Route::get('/pricing','HomePageController@pricing');
- Route::get('/whyChooseUs','HomePageController@whyChooseUs');
- Route::get('/services','HomePageController@services');
+ Route::get('/aboutus','HomePageController@aboutus')->name('aboutus');
+ Route::get('/careers','HomePageController@careers')->name('careers');
+ Route::get('/contactus','HomePageController@contactus')->name('contactus');
+ Route::get('/howitworks','HomePageController@howitworks')->name('howitworks');
+ Route::get('/ourmission','HomePageController@ourmission')->name('ourmission');
+ Route::get('/postadd','HomePageController@postadd')->name('postadd');
+ Route::get('/pricing','HomePageController@pricing')->name('pricing');
+ Route::get('/whyChooseUs','HomePageController@whyChooseUs')->name('whyChooseUs');
+ Route::get('/services','HomePageController@services')->name('services');
  
 
 
