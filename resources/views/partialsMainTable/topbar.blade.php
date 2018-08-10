@@ -84,32 +84,48 @@
         </div>
 
         <div class="advance-search">
-                    <form method="GET" action="http://localhost/dials1800/public/search" accept-charset="UTF-8">
+                    {!! Form::open([ 'action' => 'HomePageController@table', 'method' => 'get']) !!}
                     <div class="container">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input class="form-control" placeholder="Search company" name="search" type="text">
+                                {!! Form::text('search', old('search'), ['class' => 'form-control', 'placeholder' => 'Search company']) !!}
                                 <p class="help-block"></p>
-                                                            </div>
+                                @if($errors->has('name'))
+                                    <p class="help-block">
+                                        {{ $errors->first('name') }}
+                                    </p>
+                                @endif
+                            </div>
                             <div class="form-group col-md-4">
-                                <select class="form-control form-control-lg" name="categories"><option selected="selected" value="">Category</option><option value="1">Restaurant</option><option value="2">Barber</option><option value="3">IT</option><option value="4">Car repair</option><option value="5">Shopping center</option><option value="6">Bar</option><option value="7">Lawyer</option><option value="8">Accommodation</option></select>
+                                {!! Form::select('categories', $search_categories, null , ['placeholder' => 'Category', 'class' => 'form-control form-control-lg']) !!}
                                 <p class="help-block"></p>
-                                                            </div>
+                                @if($errors->has('categories'))
+                                    <p class="help-block">
+                                        {{ $errors->first('categories') }}
+                                    </p>
+                                @endif
+                            </div>
                             <div class="form-group col-md-3">
-                                <select class="form-control form-control-lg" name="city_id"><option selected="selected" value="">City</option><option value="1">New York</option><option value="2">London</option><option value="3">Tokyo</option><option value="4">Berlin</option><option value="5">San Francisco</option></select>
+                                {!! Form::select('city_id', $search_cities, null, ['placeholder' => 'City', 'class' => 'form-control form-control-lg']) !!}
                                 <p class="help-block"></p>
-                                                            </div>
+                                @if($errors->has('city_id'))
+                                    <p class="help-block">
+                                        {{ $errors->first('city_id') }}
+                                    </p>
+                                @endif
+                            </div>
                             
                             <div class="form-group col-md-1">
-                                <button type="submit" class="btn btn-default">
+                                <button type="submit"
+                                        class="btn btn-default">
                                         <i class="fa fa-search"> </i>
                                 </button>
                             </div>
                         </div>
 
 
-                    
-                    </div></form>
+                    {!! Form::close() !!}
+                    </div>
                     
                 </div>
 
@@ -121,20 +137,20 @@
         <nav>
           <button><i class="fa fa-bars"></i></button>
           <ul class="primary-nav list-unstyled">
-            <li><a href="http://localhost/dials1800/public">Home</a></li>
+            <li><a href="{{URL::to('/')}}">Home</a></li>
             <li class="dropdown"><a href="#">Company<i class="fa fa-angle-down"></i></a>
               <ul>
-                <li><a href="http://localhost/dials1800/public/aboutus">About Us</a></li>
-                <li><a href="http://localhost/dials1800/public/whyChooseUs">Why Choose Us</a></li>
-                <li><a href="http://localhost/dials1800/public/ourmission">Our Mission &amp; Vision</a></li>
+                <li><a href="{{route('aboutus')}}">About Us</a></li>
+                <li><a href="{{route('whyChooseUs')}}">Why Choose Us</a></li>
+                <li><a href="{{route('ourmission')}}">Our Mission &amp; Vision</a></li>
               </ul>
             </li>
-            <li><a href="http://localhost/dials1800/public/services">Services</a></li>
-            <li><a href="http://localhost/dials1800/public/pricing">Price Listing</a></li>
-            <li><a href="http://localhost/dials1800/public/howitworks">How It Work</a> </li>
-            <li><a href="http://localhost/dials1800/public/careers">Careers</a></li>
-            <li><a href="http://localhost/dials1800/public/postadd">Post Free Add</a></li>
-            <li><a href="http://localhost/dials1800/public/contactus">Contact Us</a></li>
+            <li><a href="{{route('services')}}">Services</a></li>
+            <li><a href="{{route('pricing')}}">Price Listing</a></li>
+            <li><a href="{{route('howitworks')}}">How It Work</a> </li>
+            <li><a href="{{route('careers')}}">Careers</a></li>
+            <li><a href="{{route('postadd')}}">Post Free Add</a></li>
+            <li><a href="{{route('contactus')}}">Contact Us</a></li>
           </ul>
         </nav>
       </div>
